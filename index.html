@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="app.css">
 <head>
     <meta charset="UTF-8">
-    <title>Using TheMovieDB</title>
+    <title>Random Movie Generator</title>
     <meta name="viewport" content="width=device-width">
-    <!-- API version 3 documentation: 
-        https://developers.themoviedb.org/3/search
-        https://developers.themoviedb.org/3/movies
-    -->
 </head>
 <body>
     <h1>Random Movie Generator</h1>
     <div id="specs">
         <form>
-            <input>
+            <label for="search">Search</label>
+            <input type="text" id="search" name="search">
         </form>
+        <button id="search_button" onclick="search()">Do it</button>
     </div>
     <div id="output">
-        <!-- output will go here -->
+        <img src="https://www.ex-t.com/wp-content/uploads/2019/04/blank-120.png" id="output_image">
     </div>
     
     <script src="script.js"></script>

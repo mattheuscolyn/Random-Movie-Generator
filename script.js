@@ -11,12 +11,17 @@ https://api.themoviedb.org/3/search/movie?api_key=<APIKEY>&query=<keyword>
 https://api.themoviedb.org/3/movie/<movie-id>?api_key=<APIKEY>
 *************/
 //const APIKEY is inside key.js
-const APIKEY = dfa9621f9b34c8c51982e15b0c50bc06;
+const APIKEY = "dfa9621f9b34c8c51982e15b0c50bc06";
 let baseURL = 'https://api.themoviedb.org/3/';
 let configData = null;
 let baseImageURL = null;
 
-let getConfig = function () {
+function search() {
+    search_term = document.getElementById("search").value
+    getConfig(search_term)
+}
+
+let getConfig = function (input) {
     let url = "".concat(baseURL, 'configuration?api_key=', APIKEY); 
     fetch(url)
     .then((result)=>{
@@ -27,7 +32,7 @@ let getConfig = function () {
         configData = data.images;
         console.log('config:', data);
         console.log('config fetched');
-        runSearch('jaws')
+        runSearch(input)
     })
     .catch(function(err){
         alert(err);
@@ -39,11 +44,17 @@ let runSearch = function (keyword) {
     fetch(url)
     .then(result=>result.json())
     .then((data)=>{
-        //process the returned data
-        document.getElementById('output').innerHTML = JSON.stringify(data, null, 4);
-        //work with results array...
-        
+        var path = data['results'][1]['backdrop_path']
+        img_source = ''.concat('http://image.tmdb.org/t/p/', 'w500', path);
+        document.getElementById("output_image").src = img_source;
     })
 }
 
-document.addEventListener('DOMContentLoaded', getConfig);
+/***** 
+var search_data = JSON.parse(data);
+var path = search_data['results'][1]['backdrop_path']
+var img = document.createElement("img");
+img.src = ''.concat('http://image.tmdb.org/t/p/', 'w185', path);
+var src = document.getElementById("output");
+src.appendChild(img);       
+*/
