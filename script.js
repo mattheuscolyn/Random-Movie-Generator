@@ -1,16 +1,3 @@
-/*************
-SAMPLE URLS
-
-1. To get the config data like image base urls
-https://api.themoviedb.org/3/configuration?api_key=<APIKEY>
-
-2. To fetch a list of movies based on a keyword
-https://api.themoviedb.org/3/search/movie?api_key=<APIKEY>&query=<keyword>
-
-3. To fetch more details about a movie
-https://api.themoviedb.org/3/movie/<movie-id>?api_key=<APIKEY>
-*************/
-//const APIKEY is inside key.js
 const APIKEY = "dfa9621f9b34c8c51982e15b0c50bc06";
 let baseURL = 'https://api.themoviedb.org/3/';
 let configData = null;
