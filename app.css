@@ -2,3 +2,8 @@
     width: fit-content;
     height: fit-content;
 }
+
+#output {
+    width: 1000 px;
+    height: 500 px;
+}

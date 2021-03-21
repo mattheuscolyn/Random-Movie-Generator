@@ -44,7 +44,7 @@ let runSearch = function (keyword) {
     fetch(url)
     .then(result=>result.json())
     .then((data)=>{
-        var path = data['results'][1]['backdrop_path']
+        var path = data['results'][1]['poster_path']
         img_source = ''.concat('http://image.tmdb.org/t/p/', 'w500', path);
         document.getElementById("output_image").src = img_source;
     })
