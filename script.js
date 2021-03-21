@@ -37,11 +37,11 @@ let runSearch = function (keyword) {
     })
 }
 
-/***** 
-var search_data = JSON.parse(data);
-var path = search_data['results'][1]['backdrop_path']
-var img = document.createElement("img");
-img.src = ''.concat('http://image.tmdb.org/t/p/', 'w185', path);
-var src = document.getElementById("output");
-src.appendChild(img);       
-*/
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
