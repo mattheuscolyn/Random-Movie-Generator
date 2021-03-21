@@ -47,21 +47,3 @@ let runSearch = function (keyword) {
 }
 
 document.addEventListener('DOMContentLoaded', getConfig);
-/*******************************
-SAMPLE SEARCH RESULTS DATA
-{ "vote_count": 2762, 
-    "id": 578, 
-    "video": false, 
-    "vote_average": 7.5, 
-    "title": "Jaws", 
-    "popularity": 16.273358, 
-    "poster_path": "/l1yltvzILaZcx2jYvc5sEMkM7Eh.jpg", 
-    "original_language": "en", 
-    "original_title": "Jaws", 
-    "genre_ids": [ 27, 53, 12 ], 
-    "backdrop_path": "/slkPgAt1IQgxZXNrazEcOzhAK8f.jpg", 
-    "adult": false, 
-    "overview": "An insatiable great white shark terrorizes the townspeople of Amity Island, The police chief, an oceanographer and a grizzled shark hunter seek to destroy the bloodthirsty beast.", 
-    "release_date": "1975-06-18" 
-}
-*******************************/
