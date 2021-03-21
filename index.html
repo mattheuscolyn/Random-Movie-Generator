@@ -11,9 +11,12 @@
     <div id="specs">
         <form>
             <label for="search">Search</label>
-            <input type="text" id="search" name="search">
-            <label for="myRange">Year</label>
-            <input type="range" min="1890" max="2021" value="50" class="slider" id="myRange" name="myRange">
+            <input type="text" id="search" name="search"><br><br>
+            <div class="slidecontainer">
+                <label for="yearSlider">Year</label>
+                <input type="range" min="1890" max="2021" value="50" class="slider" id="yearSlider" name="yearSlider">
+                <p id="demo">Value</p>
+            </div>
         </form>
         <button id="search_button" onclick="search()">Do it</button>
     </div>

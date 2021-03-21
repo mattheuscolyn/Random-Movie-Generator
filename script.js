@@ -37,11 +37,9 @@ let runSearch = function (keyword) {
     })
 }
 
-var slider = document.getElementById("myRange");
+var slider = document.getElementById("yearSlider");
 var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
+output.innerHTML = slider.value;
 slider.oninput = function() {
   output.innerHTML = this.value;
 }
