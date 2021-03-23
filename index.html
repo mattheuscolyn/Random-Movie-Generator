@@ -7,29 +7,33 @@
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-    <h1>Random Movie Generator</h1>
-    <div id="specs">
-        <form>
-            <div class="slidecontainer">
-                <label for="minYearSlider" id="min_year_val">Minimum year:  </label>
-                <input type="range" min="1890" max="2021" value="50" class="slider" id="minYearSlider" name="minYearSlider">
+    <h1 id="main_head">Random Movie Generator</h1>
+
+    <div class="column">
+        <div id="specs">
+            <div id="buttons_and_sliders">
+                <form>
+                    <div class="slidecontainer">
+                        <label for="minYearSlider" id="min_year_val">Minimum year:  </label>
+                        <input type="range" min="1890" max="2021" value="50" class="slider" id="minYearSlider" name="minYearSlider">
+                    </div>
+                    <div class="slidecontainer">
+                        <label for="maxYearSlider" id="max_year_val">Maximum year: </label>
+                        <input type="range" min="1890" max="2021" value="50" class="slider" id="maxYearSlider" name="maxYearSlider">
+                    </div>
+                </form>
+                <button id="search_button" onclick="search()">Do it</button>
             </div>
-            <div class="slidecontainer">
-                <label for="maxYearSlider" id="max_year_val">Maximum year: </label>
-                <input type="range" min="1890" max="2021" value="50" class="slider" id="maxYearSlider" name="maxYearSlider">
-            </div>
-        </form>
-        <button id="search_button" onclick="search()">Do it</button>
+        </div>
     </div>
-    <div>
+    <div id="movie_stuff">
         <label id="result_num">test</label>
-    </div>
-    <div id="output">
-        <a href="https://www.themoviedb.org/?language=en-US" id="film_link_from_image">
-            <img src="https://www.ex-t.com/wp-content/uploads/2019/04/blank-120.png" id="output_image">
-        </a>
-    </div>
-    
+        <div id="output" class="column">
+            <a href="https://www.themoviedb.org/?language=en-US" id="film_link_from_image">
+                <img src="https://www.ex-t.com/wp-content/uploads/2019/04/blank-120.png" id="output_image">
+            </a>
+        </div>
+    </div>    
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,12 +1,25 @@
-#output_image {
-    width: fit-content;
-    height: fit-content;
+body {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-right: 50px;
+    margin-left: 50px;
 }
 
-#output {
-    width: 1000 px;
-    height: 500 px;
+div#specs {
+    width: 75%;
+    border-width: 2px;
+    border-color:black;
+    border-style: solid;
 }
+
+div#buttons_and_sliders {
+    padding: 5%;
+}
+
+.column {
+    float: left;
+    width: 50%;
+  }
 
 .slidecontainer {
     width: 100%; /* Width of the outside container */
@@ -15,7 +28,7 @@
 .slider {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 50%;
+    width: 35%;
     height: 15px;
     background: #d3d3d3;
     outline: black;
