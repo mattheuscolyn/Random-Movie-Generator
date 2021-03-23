@@ -11,8 +11,12 @@
     <div id="specs">
         <form>
             <div class="slidecontainer">
-                <label for="yearSlider" id="year_val">Minimum year: </label>
-                <input type="range" min="1890" max="2021" value="50" class="slider" id="yearSlider" name="yearSlider">
+                <label for="minYearSlider" id="min_year_val">Minimum year:  </label>
+                <input type="range" min="1890" max="2021" value="50" class="slider" id="minYearSlider" name="minYearSlider">
+            </div>
+            <div class="slidecontainer">
+                <label for="maxYearSlider" id="max_year_val">Maximum year: </label>
+                <input type="range" min="1890" max="2021" value="50" class="slider" id="maxYearSlider" name="maxYearSlider">
             </div>
         </form>
         <button id="search_button" onclick="search()">Do it</button>

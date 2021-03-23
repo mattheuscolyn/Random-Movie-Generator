@@ -3,13 +3,22 @@ let baseURL = 'https://api.themoviedb.org/3/';
 let configData = null;
 let baseImageURL = null;
 
-var min_year_slider = document.getElementById("yearSlider");
-var year_val_for_search = min_year_slider.value + "-01-01"
-var output = document.getElementById("year_val");
-output.innerHTML = "Minimum year: " + min_year_slider.value;
+var min_year_slider = document.getElementById("minYearSlider");
+var min_year_val_for_search = min_year_slider.value + "-01-01"
+var min_year_output = document.getElementById("min_year_val");
+min_year_output.innerHTML = "Minimum year: " + min_year_slider.value;
 min_year_slider.oninput = function() {
-    output.innerHTML = "Minimum year: " + this.value;
-    year_val_for_search = min_year_slider.value + "-01-01";
+    min_year_output.innerHTML = "Minimum year: " + this.value;
+    min_year_val_for_search = min_year_slider.value + "-01-01";
+}
+
+var max_year_slider = document.getElementById("maxYearSlider");
+var max_year_val_for_search = max_year_slider.value + "-01-01"
+var max_year_output = document.getElementById("max_year_val");
+max_year_output.innerHTML = "Maximum year: " + max_year_slider.value;
+max_year_slider.oninput = function() {
+    max_year_output.innerHTML = "Maximum year: " + this.value;
+    max_year_val_for_search = max_year_slider.value + "-01-01";
 }
 
 function search() {
@@ -44,7 +53,7 @@ function getConfig() {
 */
 
 function runSearch() {
-    let url = ''.concat(baseURL, 'discover/movie?api_key=', APIKEY, '&language=en-US', '&release_date.gte=', year_val_for_search);
+    let url = ''.concat(baseURL, 'discover/movie?api_key=', APIKEY, '&language=en-US', '&release_date.gte=', min_year_val_for_search, '&release_date.lte=', max_year_val_for_search);
     fetch(url)
     .then(result=>result.json())
     .then((data)=>{
@@ -52,7 +61,7 @@ function runSearch() {
         var path = data['results'][result_select]['poster_path'];
         img_source = ''.concat('http://image.tmdb.org/t/p/', 'w500', path);
         document.getElementById("output_image").src = img_source;
-        document.getElementById('result_num').innerHTML = '&release_date.gte=' + year_val_for_search;
+        document.getElementById('result_num').innerHTML = 'Release date between' + min_year_val_for_search + 'and' + max_year_val_for_search;
     })
 }
 
