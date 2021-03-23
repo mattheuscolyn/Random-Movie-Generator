@@ -10,15 +10,15 @@
     <h1>Random Movie Generator</h1>
     <div id="specs">
         <form>
-            <label for="search">Search</label>
-            <input type="text" id="search" name="search"><br><br>
             <div class="slidecontainer">
-                <label for="yearSlider">Year</label>
+                <label for="yearSlider" id="year_val">Minimum year: </label>
                 <input type="range" min="1890" max="2021" value="50" class="slider" id="yearSlider" name="yearSlider">
-                <p id="demo">Value</p>
             </div>
         </form>
         <button id="search_button" onclick="search()">Do it</button>
+    </div>
+    <div>
+        <label id="result_num">test</label>
     </div>
     <div id="output">
         <img src="https://www.ex-t.com/wp-content/uploads/2019/04/blank-120.png" id="output_image">

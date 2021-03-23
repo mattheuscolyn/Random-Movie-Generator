@@ -3,12 +3,20 @@ let baseURL = 'https://api.themoviedb.org/3/';
 let configData = null;
 let baseImageURL = null;
 
-function search() {
-    search_term = document.getElementById("search").value
-    getConfig(search_term)
+var min_year_slider = document.getElementById("yearSlider");
+var year_val_for_search = min_year_slider.value + "-01-01"
+var output = document.getElementById("year_val");
+output.innerHTML = "Minimum year: " + min_year_slider.value;
+min_year_slider.oninput = function() {
+    output.innerHTML = "Minimum year: " + this.value;
+    year_val_for_search = min_year_slider.value + "-01-01";
 }
 
-let getConfig = function (input) {
+function search() {
+    getConfig()
+}
+
+function getConfig() {
     let url = "".concat(baseURL, 'configuration?api_key=', APIKEY); 
     fetch(url)
     .then((result)=>{
@@ -19,27 +27,35 @@ let getConfig = function (input) {
         configData = data.images;
         console.log('config:', data);
         console.log('config fetched');
-        runSearch(input)
+        runSearch()
     })
     .catch(function(err){
         alert(err);
     });
 }
 
-let runSearch = function (keyword) {
-    let url = ''.concat(baseURL, 'search/movie?api_key=', APIKEY, '&query=', keyword);
+/*
+&sort_by=popularity.desc
+&include_adult=false
+&include_video=false
+&page=1
+&release_date.gte=1999-01-01
+&release_date.lte=2010-01-01
+*/
+
+function runSearch() {
+    let url = ''.concat(baseURL, 'discover/movie?api_key=', APIKEY, '&language=en-US', '&release_date.gte=', year_val_for_search);
     fetch(url)
     .then(result=>result.json())
     .then((data)=>{
-        var path = data['results'][1]['poster_path']
+        var result_select = random(0,data['results'].length)
+        var path = data['results'][result_select]['poster_path'];
         img_source = ''.concat('http://image.tmdb.org/t/p/', 'w500', path);
         document.getElementById("output_image").src = img_source;
+        document.getElementById('result_num').innerHTML = '&release_date.gte=' + year_val_for_search;
     })
 }
 
-var slider = document.getElementById("yearSlider");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
-slider.oninput = function() {
-  output.innerHTML = this.value;
+function random(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
 }
