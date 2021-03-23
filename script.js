@@ -22,7 +22,11 @@ max_year_slider.oninput = function() {
 }
 
 function search() {
-    getConfig()
+    if (min_year_val_for_search > max_year_val_for_search) {
+        alert("Minimum year must be less than maximum year")
+    } else {
+        getConfig()
+    }
 }
 
 function getConfig() {
