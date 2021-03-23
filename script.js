@@ -65,8 +65,8 @@ function runSearch() {
         var path = data['results'][result_select]['poster_path'];
         img_source = ''.concat('http://image.tmdb.org/t/p/', 'w500', path);
         document.getElementById("output_image").src = img_source;
-        document.getElementById('result_num').innerHTML = 'https://www.themoviedb.org/movie/' + data['results'][result_select]['id'] + '?language=en-US';
-        document.getElementById('film_link_from_image').href = 'https://www.themoviedb.org/movie/' + data['results'][result_select]['id'] + '?language=en-US'
+        document.getElementById('film_link_from_image').href = 'https://www.themoviedb.org/movie/' + data['results'][result_select]['id'] + '?language=en-US';
+        document.getElementById('result_num').innerHTML = data['results'][result_select]['title'];
     })
 }
 
