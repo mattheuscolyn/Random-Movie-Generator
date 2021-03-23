@@ -46,3 +46,7 @@
     background: black;
     cursor: pointer;
 }
+
+#output_image:hover {
+    border: 5px solid black;
+}
